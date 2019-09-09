@@ -8,5 +8,5 @@ services:
     environment:
       - AIRPLAY_NAME=pict
     volumes:
-      - '~/dockers/shairport-sync/shairport-sync.conf:/etc/shairport-sync.conf'
+      - '/home/pi/dockers/shairport-sync/shairport-sync.conf:/etc/shairport-sync.conf'
     image: 'shairport-sync:latest'
