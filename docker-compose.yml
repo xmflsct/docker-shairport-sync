@@ -1,6 +1,7 @@
 version: '3'
 services:
   shairport-sync:
+    restart: always
     network_mode: host
     devices:
       - '/dev/snd'
