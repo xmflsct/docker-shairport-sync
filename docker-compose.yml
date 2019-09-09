@@ -1,0 +1,11 @@
+version: '3'
+services:
+  shairport-sync:
+    network_mode: host
+    devices:
+      - '/dev/snd'
+    environment:
+      - AIRPLAY_NAME=pict
+    volumes:
+      - '~/dockers/shairport-sync/shairport-sync.conf:/etc/shairport-sync.conf'
+    image: 'shairport-sync:latest'
