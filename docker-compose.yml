@@ -2,11 +2,15 @@ version: '3'
 services:
   shairport-sync:
     restart: always
+    build:
+      context: .
+      args:
+        SHAIRPORT_VER: 3.3.2
     network_mode: host
     devices:
       - '/dev/snd'
     environment:
-      - AIRPLAY_NAME=pict
+      - AIRPLAY_NAME=@_@
     volumes:
       - '/home/pi/dockers/shairport-sync/shairport-sync.conf:/etc/shairport-sync.conf'
-    image: 'shairport-sync:latest'
+    image: 'xmflsct/shairport-sync:3.3.2'

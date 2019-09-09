@@ -1,11 +1,10 @@
-FROM resin/armhf-alpine:latest
-MAINTAINER xmflsct@gmail.com
+FROM alpine:latest
 
-ENV SHAIRPORT_VER=3.3.2
+ARG SHAIRPORT_VER
 
 WORKDIR /
 
-RUN apk --no-cache -U add \
+RUN apk --no-cache -U add --virtual .build-dependencies \
         git \
         build-base \
         autoconf \
@@ -35,19 +34,7 @@ RUN apk --no-cache -U add \
   && make install \
   && cp ./scripts/shairport-sync.conf /etc/shairport-sync.conf \
   && cd / \
-  && apk --purge del \
-        git \
-        build-base \
-        autoconf \
-        automake \
-        libtool \
-        alsa-lib-dev \
-        libdaemon-dev \
-        popt-dev \
-        libressl-dev \
-        soxr-dev \
-        avahi-dev \
-        libconfig-dev \
+  && apk del .build-dependencies \
   && apk add --no-cache \
         dbus \
         alsa-lib \
@@ -64,6 +51,6 @@ RUN apk --no-cache -U add \
 
 COPY start.sh /start
 
-ENV AIRPLAY_NAME Docker
+ENV AIRPLAY_NAME airplay
 
 ENTRYPOINT [ "/start" ]
