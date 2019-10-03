@@ -1,6 +1,7 @@
 version: '3'
 services:
   shairport-sync:
+    container_name: shairport-sync
     restart: always
     build:
       context: .
