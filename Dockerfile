@@ -4,7 +4,7 @@ ARG SHAIRPORT_VER
 
 WORKDIR /
 
-RUN apk --no-cache -U add --virtual .build-dependencies \
+RUN apk --update --no-cache add --virtual .build-deps \
         git \
         build-base \
         autoconf \
@@ -32,9 +32,7 @@ RUN apk --no-cache -U add --virtual .build-dependencies \
         --with-metadata \
   && make \
   && make install \
-  && cp ./scripts/shairport-sync.conf /etc/shairport-sync.conf \
-  && cd / \
-  && apk del .build-dependencies \
+  && apk del .build-deps \
   && apk add --no-cache \
         dbus \
         alsa-lib \

@@ -13,5 +13,5 @@ services:
     environment:
       - AIRPLAY_NAME=@_@
     volumes:
-      - '/home/pi/dockers/shairport-sync/shairport-sync.conf:/etc/shairport-sync.conf'
+      - './shairport-sync.conf:/etc/shairport-sync.conf'
     image: 'xmflsct/shairport-sync:3.3.2'
