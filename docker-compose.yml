@@ -6,12 +6,10 @@ services:
     build:
       context: .
       args:
-        SHAIRPORT_VER: 3.3.2
+        SHAIRPORT_VER: 3.3.4
     network_mode: host
     devices:
       - '/dev/snd'
     environment:
       - AIRPLAY_NAME=@_@
-    volumes:
-      - './shairport-sync.conf:/etc/shairport-sync.conf'
-    image: 'xmflsct/shairport-sync:3.3.2'
+    image: 'xmflsct/shairport-sync:3.3.4'
