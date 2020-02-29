@@ -23,11 +23,9 @@ RUN apk add --update \
     && ./configure \
          --prefix=/build \
          --with-alsa \
-         --with-pipe \
+         --with-soxr \
          --with-avahi \
          --with-ssl=openssl \
-         --with-soxr \
-         --with-metadata \
     && make \
     && make install
 
