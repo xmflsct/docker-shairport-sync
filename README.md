@@ -24,9 +24,7 @@ services:
     environment:
       - AIRPLAY_NAME=YOUR-DECIDE
     volumes:
-      - ./data/shairport-sync.conf:/shairport-sync.conf # Replace with your config file
-    build:
-      context: .
+      - /YOUR-DIR/shairport-sync.conf:/shairport-sync.conf # Replace with your config file
     image: xmflsct/shairport-sync:latest
 ```
 Sample configuration file can be found [here](https://github.com/mikebrady/shairport-sync/blob/master/scripts/shairport-sync.conf). For my configuration for [Raspiberry Pi 4](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) sound out from HDMI 0, you can refer to the `data` folder.
