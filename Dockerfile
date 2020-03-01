@@ -38,7 +38,6 @@ FROM alpine:latest
 RUN apk add --no-cache \
       dbus \
       alsa-lib \
-#      libdaemon \
       popt \
       libressl \
       soxr \
