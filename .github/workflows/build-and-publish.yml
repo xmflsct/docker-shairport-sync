@@ -2,7 +2,7 @@ name: 'Build and publish xmflsct/shairport-sync'
 
 on:
   release:
-    types: [published, created, edited]
+    types: [created]
 
 jobs:
   build:
@@ -15,14 +15,14 @@ jobs:
         with:
           ref: ${{ steps.get_tag_name.outputs.VERSION }}
       - name: Publish to Docker Hub
-        uses: elgohr/Publish-Docker-Github-Action@2
+        uses: elgohr/Publish-Docker-Github-Action@2.12
         with:
           name: xmflsct/shairport-sync
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_TOKEN }}
           tags: "latest,${{ steps.get_tag_name.outputs.VERSION }}"
       - name: Publish to GitHub Registry
-        uses: elgohr/Publish-Docker-Github-Action@2
+        uses: elgohr/Publish-Docker-Github-Action@2.12
         with:
           name: xmflsct/docker-shairport-sync/shairport-sync
           username: ${{ github.actor }}
