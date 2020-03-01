@@ -1,9 +1,8 @@
 name: 'Build and publish xmflsct/shairport-sync'
 
 on:
-  push:
-    tags:
-      - '*'
+  release:
+    types: [published, created, edited]
 
 jobs:
   build:
